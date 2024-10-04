@@ -3,12 +3,18 @@ package edu.grinnell.csc207.util;
 import static java.lang.reflect.Array.newInstance;
 
 /**
- * A basic implementation of associative arrays, which store key-value pairs.
- * 
+ * A basic implementation of associative arrays, which store key-value pairs 
+ * and allow lookup of values by key. The associative array is implemented 
+ * as a dynamically expanding array of {@link KVPair} objects.
+ *
  * @param <K> the type of keys maintained by this associative array
  * @param <V> the type of mapped values
+ * 
+ * @author Moise Milenge
+ * @author Samuel A. Rebelsky
  */
 public class AssociativeArray<K, V> {
+  
   // +-----------+---------------------------------------------------
   // | Constants |
   // +-----------+
