@@ -36,15 +36,8 @@ public class KVPair<K, V> {
   /**
    * Creates a new key-value pair with the specified key and value.
    *
-<<<<<<< HEAD
    * @param pairKey The key of the new pair.
    * @param pairValue The value of the new pair.
-=======
-   * @param pairKey
-   *   The key of the new pair.
-   * @param pairValue
-   *   The value of the new pair.
->>>>>>> 0a15b9b806aa374fe06d0a4c0e97f7e92238470a
    */
   public KVPair(K pairKey, V pairValue) {
     this.key = pairKey;
@@ -62,7 +55,6 @@ public class KVPair<K, V> {
    */
   public KVPair<K, V> clone() {
     return new KVPair<>(this.key, this.val);
-    return new KVPair<K, V>(this.key, this.val);
   } // clone()
 
   /**

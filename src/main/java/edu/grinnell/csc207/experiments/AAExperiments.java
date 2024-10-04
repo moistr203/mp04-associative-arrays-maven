@@ -63,12 +63,7 @@ public class AAExperiments {
    * @param aa  The associative array.
    * @param key The key.
    */
-<<<<<<< HEAD
   public static void hasKey(PrintWriter pen, AssociativeArray<String, String> aa, String key) {
-=======
-  public static void hasKey(PrintWriter pen,
-      AssociativeArray<String, String> aa, String key) {
->>>>>>> 0a15b9b806aa374fe06d0a4c0e97f7e92238470a
     pen.printf("hasKey(\"%s\") -> ", key);
     try {
       pen.println(aa.hasKey(key));
@@ -92,12 +87,8 @@ public class AAExperiments {
   public static void main(String[] args) throws Exception {
     PrintWriter pen = new PrintWriter(System.out, true);
 
-<<<<<<< HEAD
     // Create a new associative array to test.
     AssociativeArray<String, String> strings2strings = new AssociativeArray<>();
-=======
-    AssociativeArray strings2strings = new AssociativeArray<String, String>();
->>>>>>> 0a15b9b806aa374fe06d0a4c0e97f7e92238470a
 
     // Test 1: Check for a key in an empty array.
     pen.println("Test 1: Checking for key 'k' in an empty array.");
@@ -125,11 +116,7 @@ public class AAExperiments {
     pen.println("Test 4: Retrieving value for a null key.");
     get(pen, strings2strings, null);
 
-<<<<<<< HEAD
     // End of experiments.
-=======
-    // And we're done.
->>>>>>> 0a15b9b806aa374fe06d0a4c0e97f7e92238470a
     pen.close();
   } // main(String[])
 } // class AAExperiments
