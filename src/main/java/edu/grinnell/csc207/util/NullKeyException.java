@@ -1,27 +1,28 @@
 package edu.grinnell.csc207.util;
 
 /**
- * Exceptions that indicate that a key is null.
- *
- * @author Samuel A. Rebelsky
+ * An exception that is thrown when a null key is used in an associative
+ * array, dictionary, map, or similar data structure.
+ * <p>
+ * This exception should be thrown to indicate that null keys are not
+ * permitted in the data structure.
+ * </p>
+ * 
  */
 public class NullKeyException extends Exception {
   // +--------------+------------------------------------------------
-  // | Constructors |
-  // +--------------+
 
   /**
-   * Create a new exception.
+   * Creates a new NullKeyException with a default message.
    */
   public NullKeyException() {
-    super("key not found");
+    super("Null key provided.");
   } // NullKeyException()
 
   /**
-   * Create a new exception with a particular message.
+   * Creates a new NullKeyException with a specified message.
    *
-   * @param message
-   *   The exception's message.
+   * @param message The message that provides additional details.
    */
   public NullKeyException(String message) {
     super(message);

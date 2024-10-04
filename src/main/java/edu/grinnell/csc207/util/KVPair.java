@@ -1,76 +1,107 @@
 package edu.grinnell.csc207.util;
 
 /**
- * An easy way to store key/value pairs.  We assume that other
- * classes will access fields directly.
- *
- * @param <K>
- *   The type of the keys.
- * @param <V>
- *   The type of the values.
+ * Represents a key-value pair for use in associative arrays or other
+ * data structures.
+ * 
+ * @param <K> The type of the key.
+ * @param <V> The type of the value.
  */
-class KVPair<K, V> {
+public class KVPair<K, V> {
   // +--------+------------------------------------------------------
   // | Fields |
   // +--------+
 
   /**
-   * The key.
+   * The key associated with this key-value pair.
    */
-  K key;
+  private K key;
 
   /**
-   * The value.
+   * The value associated with the key in this key-value pair.
    */
-  V val;
+  private V val;
 
   // +--------------+------------------------------------------------
   // | Constructors |
   // +--------------+
 
   /**
-   * Create an empty key/value pair.
+   * Creates a new empty key-value pair with both key and value as null.
    */
-  KVPair() {
+  public KVPair() {
     this(null, null);
   } // KVPair()
 
   /**
-   * Create a new key/value pair.
+   * Creates a new key-value pair with the specified key and value.
    *
-   * @param pairKey
-   *   The key of the new pair.
+   * @param pairKey The key of the new pair.
+   * @param pairValue The value of the new pair.
    */
-  KVPair(K pairKey, V pairValue) {
+  public KVPair(K pairKey, V pairValue) {
     this.key = pairKey;
     this.val = pairValue;
-  } // KVPair(K,V)
+  } // KVPair(K, V)
 
   // +------------------+--------------------------------------------
   // | Standard methods |
   // +------------------+
 
   /**
-   * Make a copy of this key/value pair.
+   * Creates a copy of this key-value pair.
    *
-   * @return the copy.
+   * @return A new {@code KVPair} object that is a copy of this pair.
    */
-  public KVPair<K,V> clone() {
-    return new KVPair<K,V>(this.key, this.val);
+  public KVPair<K, V> clone() {
+    return new KVPair<>(this.key, this.val);
   } // clone()
 
   /**
-   * Convert the key/value pair to a string (e.g., for printing).
+   * Converts the key-value pair to a string for easy viewing.
    *
-   * @return a string of the form "key:value".
+   * @return A string representation of the form "key:value".
    */
+  @Override
   public String toString() {
-    if (null == this.val) {
-      return this.key.toString() + ":" + "<null>";
-    } else {
-      return this.key.toString() + ":" + this.val.toString();
-    } // if
+    return (this.val == null)
+        ? this.key.toString() + ":<null>"
+        : this.key.toString() + ":" + this.val.toString();
   } // toString()
 
-} // class KVPair
+  /**
+   * Gets the key of this key-value pair.
+   *
+   * @return The key of this pair.
+   */
+  public K getKey() {
+    return this.key;
+  } // getKey()
 
+  /**
+   * Gets the value associated with the key of this pair.
+   *
+   * @return The value of this pair.
+   */
+  public V getValue() {
+    return this.val;
+  } // getValue()
+
+  /**
+   * Sets the key of this key-value pair.
+   *
+   * @param newKey The new key.
+   */
+  public void setKey(K newKey) {
+    this.key = newKey;
+  } // setKey(K)
+
+  /**
+   * Sets the value associated with the key of this pair.
+   *
+   * @param newVal The new value.
+   */
+  public void setValue(V newVal) {
+    this.val = newVal;
+  } // setValue(V)
+} // class KVPair

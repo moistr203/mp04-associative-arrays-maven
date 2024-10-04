@@ -1,32 +1,29 @@
 package edu.grinnell.csc207.experiments;
 
-import edu.grinnell.csc207.util.AssociativeArray;
-
 import java.io.PrintWriter;
+
+import edu.grinnell.csc207.util.AssociativeArray;
+import edu.grinnell.csc207.util.KeyNotFoundException;
+import edu.grinnell.csc207.util.NullKeyException;
 
 /**
  * Experiments with Associative Arrays.
- *
- * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * This class is designed to test the behaviors and functions of the
+ * AssociativeArray class using various keys and values.
+ * 
  */
 public class AAExperiments {
-
   // +---------+-----------------------------------------------------
-  // | Globals |
+  // | Methods |
   // +---------+
-  
+
   /**
-   * Log and conduct a call to `set`.
+   * Log and conduct a call to `set` for the associative array.
    *
-   * @param pen
-   *   Where to log the message.
-   * @param aa
-   *   The associative array we're using.
-   * @param key
-   *   The key to set.
-   * @param val
-   *   The value to set.
+   * @param pen Where to log the message.
+   * @param aa  The associative array we're using.
+   * @param key The key to set.
+   * @param val The value to set.
    */
   public static void set(PrintWriter pen, AssociativeArray<String, String> aa, 
       String key, String val) {
@@ -34,88 +31,92 @@ public class AAExperiments {
     try {
       aa.set(key, val);
       pen.println("OK");
+    } catch (NullKeyException e) {
+      pen.println("[FAILED due to null key: " + e.toString() + "]");
     } catch (Exception e) {
-      pen.println("FAILED because " + e.toString());
+      pen.println("[FAILED because " + e.toString() + "]");
     } // try/catch
   } // set(PrintWriter, AssociativeArray<String, String>, String, String)
 
   /**
-   * Log and conduct a call to `get`.
+   * Log and conduct a call to `get` from the associative array.
    *
-   * @param pen
-   *   Where to log the message.
-   * @param aa
-   *   The associative array.
-   * @param key
-   *   The key.
+   * @param pen Where to log the message.
+   * @param aa  The associative array.
+   * @param key The key.
    */
-  public static void get(PrintWriter pen, AssociativeArray<String, String> aa,
-      String key) {
+  public static void get(PrintWriter pen, AssociativeArray<String, String> aa, String key) {
     pen.printf("get(\"%s\") -> ", key);
     try {
       pen.println(aa.get(key));
+    } catch (KeyNotFoundException e) {
+      pen.println("[FAILED because key not found: " + e.toString() + "]");
     } catch (Exception e) {
       pen.println("[FAILED because " + e.toString() + "]");
     } // try/catch
-  } // get(PrintWriter, AssociativeArray<String, String>, STring)
+  } // get(PrintWriter, AssociativeArray<String, String>, String)
 
   /**
-   * Log and conduct a call to `hasKey`.
+   * Log and conduct a call to `hasKey` from the associative array.
    *
-   * @param pen
-   *   Where to log the message.
-   * @param aa
-   *   The associative array.
-   * @param key
-   *   The key.
+   * @param pen Where to log the message.
+   * @param aa  The associative array.
+   * @param key The key.
    */
-  public static void hasKey(PrintWriter pen, 
-      AssociativeArray<String, String> aa, String key) {
+  public static void hasKey(PrintWriter pen, AssociativeArray<String, String> aa, String key) {
     pen.printf("hasKey(\"%s\") -> ", key);
     try {
       pen.println(aa.hasKey(key));
     } catch (Exception e) {
       pen.println("[FAILED because " + e.toString() + "]");
     } // try/catch
-  } // hasKey(PrintWriter, AssociativeArray<String, String>, STring)
+  } // hasKey(PrintWriter, AssociativeArray<String, String>, String)
 
   // +------+--------------------------------------------------------
   // | Main |
   // +------+
 
   /**
-   * Run our expereiments.
+   * Run experiments with the associative array to explore its behavior
+   * when adding, retrieving, and checking for keys.
    *
-   * @param args
-   *   Command-line parameters. (Ignored.)
+   * @param args Command-line parameters. (Ignored.)
    *
-   * @throws Exception
-   *   When something goes wrong. Usually an I/O issue or an unexpected
-   *   Associative Array hiccup.
+   * @throws Exception When something goes wrong.
    */
   public static void main(String[] args) throws Exception {
     PrintWriter pen = new PrintWriter(System.out, true);
 
-    AssociativeArray strings2strings = new AssociativeArray<String,String>();
+    // Create a new associative array to test.
+    AssociativeArray<String, String> strings2strings = new AssociativeArray<>();
 
-    // The empty array should not have any key. We'll try one.
+    // Test 1: Check for a key in an empty array.
+    pen.println("Test 1: Checking for key 'k' in an empty array.");
     hasKey(pen, strings2strings, "k");
 
-    // However, after setting that key, we should be able to get it.
+    // Test 2: Add a key-value pair and retrieve it.
+    pen.println("Test 2: Adding key 'k' with value 'key'.");
     set(pen, strings2strings, "k", "key");
+    pen.println("Test 2: Checking for key 'k'.");
     hasKey(pen, strings2strings, "k");
+    pen.println("Test 2: Retrieving value for key 'k'.");
     get(pen, strings2strings, "k");
 
-    // What happens if we try a different key?
+    // Test 3: Check behavior for a non-existing key.
+    pen.println("Test 3: Checking for non-existing key 'q'.");
     hasKey(pen, strings2strings, "q");
+    pen.println("Test 3: Retrieving value for non-existing key 'q'.");
     get(pen, strings2strings, "q");
 
-    // What happens if we try the null key?
+    // Test 4: Handling null keys.
+    pen.println("Test 4: Attempting to add a null key.");
     set(pen, strings2strings, null, "nothing");
+    pen.println("Test 4: Checking for a null key.");
     hasKey(pen, strings2strings, null);
+    pen.println("Test 4: Retrieving value for a null key.");
     get(pen, strings2strings, null);
-    
-    // And we're done.
+
+    // End of experiments.
     pen.close();
   } // main(String[])
 } // class AAExperiments

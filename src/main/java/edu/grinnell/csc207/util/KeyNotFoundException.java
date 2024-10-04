@@ -1,10 +1,9 @@
 package edu.grinnell.csc207.util;
 
 /**
- * Exceptions that indicate that a key is not in an associative array
- * (dictionary, map, etc.).
- *
- * @author Samuel A. Rebelsky
+ * An exception that is thrown when a key is not found in an associative
+ * array, dictionary, map, or similar data structure.
+ * 
  */
 public class KeyNotFoundException extends Exception {
   // +--------------+------------------------------------------------
@@ -12,17 +11,16 @@ public class KeyNotFoundException extends Exception {
   // +--------------+
 
   /**
-   * Create a new exception.
+   * Creates a new KeyNotFoundException with a default message.
    */
   public KeyNotFoundException() {
-    super("key not found");
+    super("Key not found.");
   } // KeyNotFoundException()
 
   /**
-   * Create a new exception with a particular message.
+   * Creates a new KeyNotFoundException with a specified message.
    *
-   * @param message
-   *   The message in the exceptoin.
+   * @param message The message that provides additional details.
    */
   public KeyNotFoundException(String message) {
     super(message);
