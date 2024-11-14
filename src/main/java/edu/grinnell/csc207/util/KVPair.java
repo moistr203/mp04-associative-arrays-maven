@@ -3,7 +3,7 @@ package edu.grinnell.csc207.util;
 /**
  * Represents a key-value pair for use in associative arrays or other
  * data structures.
- * 
+ *
  * @param <K> The type of the key.
  * @param <V> The type of the value.
  */

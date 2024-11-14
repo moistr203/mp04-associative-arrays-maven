@@ -7,7 +7,7 @@ package edu.grinnell.csc207.util;
  * This exception should be thrown to indicate that null keys are not
  * permitted in the data structure.
  * </p>
- * 
+ *
  */
 public class NullKeyException extends Exception {
   // +--------------+------------------------------------------------

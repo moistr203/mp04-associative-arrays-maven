@@ -3,18 +3,18 @@ package edu.grinnell.csc207.util;
 import static java.lang.reflect.Array.newInstance;
 
 /**
- * A basic implementation of associative arrays, which store key-value pairs 
- * and allow lookup of values by key. The associative array is implemented 
+ * A basic implementation of associative arrays, which store key-value pairs
+ * and allow lookup of values by key. The associative array is implemented
  * as a dynamically expanding array of {@link KVPair} objects.
  *
  * @param <K> the type of keys maintained by this associative array
  * @param <V> the type of mapped values
- * 
+ *
  * @author Moise Milenge
  * @author Samuel A. Rebelsky
  */
 public class AssociativeArray<K, V> {
-  
+
   // +-----------+---------------------------------------------------
   // | Constants |
   // +-----------+
@@ -51,7 +51,13 @@ public class AssociativeArray<K, V> {
     this.size = 0;
   } // AssociativeArray()
 
-  // +------------------+--------------------------------------------
+
+  /**
+   * Returns a string representation of the associative array.
+   *
+   * @return a string representation of this associative array
+   */
+// +------------------+--------------------------------------------
   // | Standard Methods |
   // +------------------+
 
@@ -73,27 +79,6 @@ public class AssociativeArray<K, V> {
     }
     return newArray;
   } // clone()
-
-  /**
-   * Returns a string representation of the associative array.
-   *
-   * @return a string representation of this associative array
-   */
-  @Override
-  public String toString() {
-    StringBuilder result = new StringBuilder("{");
-    for (int i = 0; i < this.size; i++) {
-      if (this.pairs[i] != null) {
-        result.append(this.pairs[i].toString()).append(", ");
-      }
-    }
-    if (result.length() > 1) {
-      result.setLength(result.length() - 2); // Remove trailing comma and space
-    }
-    result.append("}");
-    return result.toString();
-  } // toString()
-
   // +----------------+----------------------------------------------
   // | Public Methods |
   // +----------------+
@@ -207,5 +192,7 @@ public class AssociativeArray<K, V> {
     }
     throw new KeyNotFoundException("Key not found.");
   } // find(K)
-  
+
+     // Additional methods
+
 } // class AssociativeArray

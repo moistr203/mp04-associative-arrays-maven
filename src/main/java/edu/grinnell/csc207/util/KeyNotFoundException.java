@@ -3,7 +3,7 @@ package edu.grinnell.csc207.util;
 /**
  * An exception that is thrown when a key is not found in an associative
  * array, dictionary, map, or similar data structure.
- * 
+ *
  */
 public class KeyNotFoundException extends Exception {
   // +--------------+------------------------------------------------

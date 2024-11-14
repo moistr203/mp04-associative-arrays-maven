@@ -11,16 +11,15 @@ The purpose of this project is to:
 - Enhance collaboration skills using version control (Git).
 
 ## Author
-**Moise Milenge**  
-**Date**: 09,29,2024  
+**Moise Milenge**
+**Date**: 09,29,2024
 **Course**: CSC-207 - Data Structures
 
 ## Acknowledgments
 - Thanks to my classmates for collaboration and feedback during the development process.
 
 ## URL
-[Link to your project repository or any relevant resources]
-
+https://github.com/moistr203/mp04-associative-arrays-maven
 ## Instructions
 1. Clone the repository and navigate to the project directory.
 2. Follow the instructions in the project documentation to implement the `AssociativeArray<K,V>` class.
@@ -28,4 +27,3 @@ The purpose of this project is to:
 4. Use Maven to run tests and check code style.
 
 ## License
-
