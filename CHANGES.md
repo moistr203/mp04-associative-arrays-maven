@@ -1,0 +1,2 @@
+# change
+## I have addressed all the required corrections: the GitHub link is now included in the README.md, and all Checkstyle violations have been fixed. The project is fully compliant with the requirements. Thank you for the feedback!
